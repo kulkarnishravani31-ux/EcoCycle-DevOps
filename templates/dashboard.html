@@ -1,0 +1,17 @@
+{% extends 'base.html' %}{% block title %}My dashboard — EcoCycle{% endblock %}
+{% block content %}
+{% set ns = namespace(pending=0, approved=0, collected=0, rejected=0) %}
+{% for r in requests %}{% if r.status == 'Pending' %}{% set ns.pending = ns.pending + 1 %}{% elif r.status == 'Approved' %}{% set ns.approved = ns.approved + 1 %}{% elif r.status == 'Collected' %}{% set ns.collected = ns.collected + 1 %}{% elif r.status == 'Rejected' %}{% set ns.rejected = ns.rejected + 1 %}{% endif %}{% endfor %}
+<section class="dashboard-heading"><div><div class="eyebrow"><span class="eyebrow-dot"></span> YOUR ECOCYCLE SPACE</div><h1>Your impact starts <span>here.</span></h1><p>Keep an eye on your pickups and follow each request along the way.</p></div><a class="button button-primary" href="/pickup">＋ Book a pickup</a></section>
+<div class="stats-grid">
+  <article class="stat-card"><span class="stat-icon stat-mint">▤</span><div><small>Total requests</small><strong>{{ requests|length }}</strong><em>All your bookings</em></div></article>
+  <article class="stat-card"><span class="stat-icon stat-amber">◷</span><div><small>Pending</small><strong>{{ ns.pending }}</strong><em>Awaiting review</em></div></article>
+  <article class="stat-card"><span class="stat-icon stat-blue">✓</span><div><small>Approved</small><strong>{{ ns.approved }}</strong><em>Ready for collection</em></div></article>
+  <article class="stat-card"><span class="stat-icon stat-green">↻</span><div><small>Collected</small><strong>{{ ns.collected }}</strong><em>Collection completed</em></div></article>
+</div>
+<section class="dashboard-main"><div class="content-card requests-card"><div class="card-heading"><div><div class="eyebrow">YOUR ACTIVITY</div><h2>Pickup requests</h2></div><span class="count-pill">{{ requests|length }} total</span></div>
+{% if requests %}<div class="request-list">{% for r in requests %}<article class="request-row"><div class="request-symbol">{{ '💻' if 'Computer' in r.item_type or 'Laptop' in r.item_type else '📱' if 'Mobile' in r.item_type else '📺' if 'TV' in r.item_type else '♻' }}</div><div class="request-info"><b>{{ r.item_type }}</b><small>Request #{{ r.id }} · {{ r.quantity }} item(s) · {{ r.preferred_date }}</small><div class="request-address">⌖ {{ r.address }}</div></div><span class="status-pill status-{{ r.status|lower }}">{{ r.status }}</span></article>{% endfor %}</div>
+{% else %}<div class="empty-state"><div class="empty-icon">♻</div><h3>Your journey starts with one pickup.</h3><p>You haven't booked a collection yet. When you're ready, we're right here.</p><a class="button button-primary" href="/pickup">Book your first pickup <span>↗</span></a></div>{% endif %}
+</div>
+<aside class="dashboard-side"><div class="content-card progress-card"><div class="eyebrow">YOUR JOURNEY</div><h2>How it works</h2><div class="journey-list"><div class="journey-step"><i>1</i><span><b>Request submitted</b><small>Your booking is recorded.</small></span></div><div class="journey-step"><i>2</i><span><b>Review & approval</b><small>Admin reviews your details.</small></span></div><div class="journey-step"><i>3</i><span><b>Collection complete</b><small>Status updates appear here.</small></span></div></div></div><div class="side-tip"><span>✦</span><div><b>A little reminder</b><p>Keep devices and accessories together where possible to make collection easier.</p></div></div></aside></section>
+{% endblock %}

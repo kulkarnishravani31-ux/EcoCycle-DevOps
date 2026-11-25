@@ -1,0 +1,22 @@
+{% extends 'base.html' %}{% block title %}Book a pickup — EcoCycle{% endblock %}
+{% block content %}
+<section class="page-intro"><div><div class="eyebrow"><span class="eyebrow-dot"></span> TAKE THE NEXT STEP</div><h1>Book a <span>pickup.</span></h1><p>Tell us what needs a new life. We'll keep your request details together here.</p></div><div class="intro-badge"><span>♻</span><b>Good choice.</b><small>You're making a difference.</small></div></section>
+<div class="booking-layout"><form method="post" class="booking-card" id="pickup-form">
+  <div class="form-section-head"><span class="section-icon">01</span><div><h2>What are we collecting?</h2><p>Select the category that best describes your items.</p></div></div>
+  <div class="item-options">
+    <label class="item-option"><input type="radio" name="item_type" value="Laptop / Computer" checked><span class="option-emoji">💻</span><b>Computer</b><small>Laptop / desktop</small></label>
+    <label class="item-option"><input type="radio" name="item_type" value="Mobile phone / Tablet"><span class="option-emoji">📱</span><b>Mobile</b><small>Phone / tablet</small></label>
+    <label class="item-option"><input type="radio" name="item_type" value="TV / Monitor"><span class="option-emoji">📺</span><b>TV & screens</b><small>Monitor / TV</small></label>
+    <label class="item-option"><input type="radio" name="item_type" value="Printer"><span class="option-emoji">🖨️</span><b>Printer</b><small>Printer / scanner</small></label>
+    <label class="item-option"><input type="radio" name="item_type" value="Small appliance"><span class="option-emoji">🔌</span><b>Appliance</b><small>Small electronics</small></label>
+    <label class="item-option"><input type="radio" name="item_type" value="Other electronics"><span class="option-emoji">♻️</span><b>Other</b><small>Other e-waste</small></label>
+  </div>
+  <div class="form-divider"></div>
+  <div class="form-section-head"><span class="section-icon">02</span><div><h2>Pickup details</h2><p>Share a few details so we can plan your collection.</p></div></div>
+  <div class="field-grid"><label>Quantity<input name="quantity" type="number" min="1" value="1" required></label><label>Preferred date<input name="preferred_date" type="date" id="preferred-date" required></label></div>
+  <label>Pickup address<textarea name="address" placeholder="House / building, street, area, city and PIN code" rows="3" required></textarea></label>
+  <label>Anything else? <span class="optional">(optional)</span><textarea name="notes" placeholder="Add a landmark or collection instructions..." rows="2"></textarea></label>
+  <div class="booking-submit"><p><span>🔒</span> Your details are used only to manage this pickup request.</p><button class="button button-primary">Submit pickup request <span>↗</span></button></div>
+</form>
+<aside class="booking-aside"><div class="aside-card aside-green"><div class="aside-illustration">♻</div><h3>Every item deserves a better ending.</h3><p>Responsible e-waste handling helps keep valuable materials in circulation and reduces the impact of improper disposal.</p></div><div class="aside-card"><h3>What happens next?</h3><div class="mini-timeline"><div><i>1</i><span><b>Request received</b><small>Your booking appears in your dashboard.</small></span></div><div><i>2</i><span><b>Admin review</b><small>Your request is reviewed and updated.</small></span></div><div><i>3</i><span><b>Collection update</b><small>Track progress from your account.</small></span></div></div></div></aside></div>
+{% endblock %}

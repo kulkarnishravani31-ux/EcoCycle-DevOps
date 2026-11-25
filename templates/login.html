@@ -1,0 +1,5 @@
+{% extends 'base.html' %}{% block title %}Log in — EcoCycle{% endblock %}
+{% block content %}
+<section class="auth-layout"><div class="auth-story"><div class="eyebrow"><span class="eyebrow-dot"></span> GOOD TO HAVE YOU BACK</div><h1>Let's keep<br>good things <span>going.</span></h1><p>Your next small action can make a meaningful difference. Sign in to manage your pickups.</p><div class="auth-quote">“The greatest threat to our planet is the belief that someone else will save it.”<small>— Robert Swan</small></div></div>
+<div class="auth-card"><div class="auth-icon">↻</div><h2>Welcome back</h2><p class="muted">Enter your details to access your account.</p><form method="post" class="form-stack"><label>Email address<input name="email" type="email" placeholder="you@example.com" autocomplete="email" required></label><label>Password<input name="password" type="password" placeholder="Your password" autocomplete="current-password" required></label><button class="button button-primary button-full">Log in <span>↗</span></button></form><p class="auth-switch">New to EcoCycle? <a href="/register">Create an account</a></p></div></section>
+{% endblock %}

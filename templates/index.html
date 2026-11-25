@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}EcoCycle — Give your e-waste a new life{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow"><span class="eyebrow-dot"></span> THE FUTURE IS CIRCULAR</div>
+    <h1>Your old tech.<br><span>A greener</span> tomorrow.</h1>
+    <p class="hero-lead">Give unwanted electronics a responsible next chapter. Book a pickup, follow its journey, and be part of a cleaner planet.</p>
+    <div class="hero-actions"><a class="button button-primary" href="{{ '/pickup' if session.get('user_id') else '/register' }}">Schedule a pickup <span>↗</span></a><a class="text-link" href="#how-it-works">See how it works <span>↓</span></a></div>
+    <div class="hero-proof"><div class="proof-avatars"><span>♻</span><span>🌱</span><span>✦</span></div><div><strong>One simple choice makes a difference.</strong><small>Join the responsible recycling movement.</small></div></div>
+  </div>
+  <div class="hero-art">
+    <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+    <div class="art-sun"></div><div class="art-leaf leaf-a">✦</div><div class="art-leaf leaf-b">✳</div>
+    <div class="device-card laptop-card"><div class="laptop-screen"><div class="screen-glow"></div><span>♻</span></div><div class="laptop-base"></div></div>
+    <div class="device-card phone-card"><div class="phone-screen"><span class="phone-speaker"></span><b>eco</b><strong>cycle</strong><small>Give it a new life.</small><i>↻</i></div></div>
+    <div class="floating-note note-top"><span class="note-icon">✓</span><span><b>Pickup made easy</b><small>Just a few quick steps</small></span></div>
+    <div class="floating-note note-bottom"><span class="note-leaf">♧</span><span><b>Choose circular</b><small>Keep resources in use</small></span></div>
+  </div>
+</section>
+<section class="trust-strip"><span>BETTER HABITS START HERE</span><i></i><span>RESPONSIBLE COLLECTION</span><i></i><span>A MORE CIRCULAR FUTURE</span></section>
+<section class="section" id="how-it-works">
+  <div class="section-heading"><div><div class="eyebrow">SIMPLE BY DESIGN</div><h2>Three steps to a <span>better cycle.</span></h2></div><p>Getting rid of old electronics shouldn't be complicated. We make the first step easy.</p></div>
+  <div class="steps-grid">
+    <article class="step-card"><div class="step-top"><span class="step-icon mint">⌕</span><span class="step-number">01</span></div><h3>Tell us what you have</h3><p>Choose your e-waste category, add a quantity and share your pickup address.</p><div class="step-line"></div></article>
+    <article class="step-card"><div class="step-top"><span class="step-icon peach">▣</span><span class="step-number">02</span></div><h3>Schedule your pickup</h3><p>Pick a convenient date and submit your request in just a few clicks.</p><div class="step-line"></div></article>
+    <article class="step-card"><div class="step-top"><span class="step-icon lilac">↻</span><span class="step-number">03</span></div><h3>Track the impact</h3><p>Follow your request status from your dashboard as it moves through the process.</p><div class="step-line"></div></article>
+  </div>
+</section>
+<section class="category-section">
+  <div class="section-heading"><div><div class="eyebrow">TECH THAT NEEDS A NEXT CHAPTER</div><h2>What can you <span>recycle?</span></h2></div><p>From the everyday to the outdated, give your electronics a more responsible route.</p></div>
+  <div class="category-grid">
+    <div class="category-card"><span class="category-emoji">💻</span><b>Computers & laptops</b><small>Desktops, laptops, accessories</small></div>
+    <div class="category-card"><span class="category-emoji">📱</span><b>Phones & tablets</b><small>Mobiles, tablets, chargers</small></div>
+    <div class="category-card"><span class="category-emoji">📺</span><b>Screens & TVs</b><small>Monitors, televisions</small></div>
+    <div class="category-card"><span class="category-emoji">🖨️</span><b>Printers & more</b><small>Printers and small devices</small></div>
+  </div>
+</section>
+<section class="impact-banner"><div class="impact-mark">↻</div><div><div class="eyebrow">MAKE YOUR NEXT MOVE COUNT</div><h2>Ready to clear the clutter<br>and care for the planet?</h2><p>Your next responsible choice is only a few clicks away.</p></div><a class="button button-light" href="{{ '/pickup' if session.get('user_id') else '/register' }}">Start a pickup <span>↗</span></a></section>
+{% endblock %}

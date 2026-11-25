@@ -1,0 +1,29 @@
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      DATABASE_URL: mysql+pymysql://ecocycle:ecocyclepass@db:3306/ecocycle
+      SECRET_KEY: local-development-change-me
+      ADMIN_EMAIL: admin@ecocycle.local
+      ADMIN_PASSWORD: Admin123!
+    depends_on:
+      db:
+        condition: service_healthy
+  db:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: ecocycle
+      MYSQL_USER: ecocycle
+      MYSQL_PASSWORD: ecocyclepass
+      MYSQL_ROOT_PASSWORD: rootpass
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-prootpass"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+volumes:
+  mysql_data:
